@@ -13,3 +13,28 @@ Enter the number
 Enter the number
 6
 Total 3 numbers are valid numbers.
+
+import java.util.Scanner;
+
+public class ValidNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+
+        System.out.println("Enter numbers. Enter a non-divisible-by-8 number to stop.");
+
+        while (true) {
+            System.out.print("Enter a number: ");
+            int number = scanner.nextInt();
+
+            if (number % 8 == 0) {
+                count++;
+            } else {
+                break;
+            }
+        }
+
+        System.out.println("Number of valid numbers entered: " + count);
+        scanner.close();
+    }
+}
