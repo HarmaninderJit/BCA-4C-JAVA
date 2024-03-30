@@ -1,0 +1,5 @@
+The policy followed by a company to process customer orders is given by the following rules:
+•	If a customer order is less than or equal to that in stock and has credit is OK, supply has requirement.
+•	If the credit is not OK do not supply. Send him intimation.
+•	If the credit is Ok but the item in stock is less than the order, supply what is in stock. Intimate to him the balance will be shipped.
+Write a Java program to implement the company policy.
