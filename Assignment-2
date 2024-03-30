@@ -3,3 +3,49 @@ The policy followed by a company to process customer orders is given by the foll
 •	If the credit is not OK do not supply. Send him intimation.
 •	If the credit is Ok but the item in stock is less than the order, supply what is in stock. Intimate to him the balance will be shipped.
 Write a Java program to implement the company policy.
+
+import java.util.Scanner;
+
+class CustomerOrder {
+    private int stock;
+    private boolean creditOk;
+
+    public CustomerOrder(int stock, boolean creditOk) {
+        this.stock = stock;
+        this.creditOk = creditOk;
+    }
+
+    public void processOrder(int order) {
+        if (order <= stock && creditOk) {
+            System.out.println("Supply " + order + " units as per the order.");
+        } else if (!creditOk) {
+            System.out.println("Credit is not OK. Cannot supply.");
+        } else {
+            System.out.println("Supply " + stock + " units as per the stock available.");
+            int balance = order - stock;
+            System.out.println("Intimate to the customer that " + balance + " units will be shipped later.");
+        }
+    }
+}
+
+public class CompanyPolicy {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the stock available: ");
+        int stock = scanner.nextInt();
+
+        System.out.print("Is the credit OK? (true/false): ");
+        boolean creditOk = scanner.nextBoolean();
+
+        System.out.print("Enter the customer order: ");
+        int order = scanner.nextInt();
+
+        CustomerOrder customerOrder = new CustomerOrder(stock, creditOk);
+        customerOrder.processOrder(order);
+
+        scanner.close();
+    }
+}
+
+
